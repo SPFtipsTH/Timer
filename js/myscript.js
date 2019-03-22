@@ -293,7 +293,7 @@ function countdownTimer() {
 	var minutes = 0;
 	var seconds = 0;
 	for (var cnt = 0; cnt < startTime.length; cnt++) {
-		document.getElementById(toLocalID[cnt]).innerHTML = "Event starts at: <br>" + startTime[cnt].local().format("YYYY-MM-DD HH:mm:ss") + " " + moment.tz(moment.tz.guess()).zoneAbbr();
+		document.getElementById(toLocalID[cnt]).innerHTML = "อีเว้นท์จะเริ่มใน: <br>" + startTime[cnt].local().format("YYYY-MM-DD HH:mm:ss") + " " + moment.tz(moment.tz.guess()).zoneAbbr();
 	}
 	continueTimer();
 	function continueTimer() {
@@ -306,7 +306,7 @@ function countdownTimer() {
 				hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
 				minutes = Math.floor((distance % (60 * 60)) / (60));
 				seconds = Math.floor((distance % (60)) / 1);
-				document.getElementById(timerID[cnt]).innerHTML = "Event begins in: " + ("0" + days).slice(-2) + "d " + ("0" + hours).slice(-2) + "h " + ("0" + minutes).slice(-2) + "m " + ("0" + seconds).slice(-2) + "s ";		
+				document.getElementById(timerID[cnt]).innerHTML = "อีเว้นท์จะเริ่มใน: " + ("0" + days).slice(-2) + "d " + ("0" + hours).slice(-2) + "h " + ("0" + minutes).slice(-2) + "m " + ("0" + seconds).slice(-2) + "s ";		
 			}
 			if (distance == -1) {
 				globalConfetti();
@@ -318,11 +318,11 @@ function countdownTimer() {
 				hours = Math.floor((distance % (60 * 60 * 24)) / (60 * 60));
 				minutes = Math.floor((distance % (60 * 60)) / (60));
 				seconds = Math.floor((distance % (60)) / 1);
-				document.getElementById(timerID[cnt]).innerHTML = "Event in progress<br> Event ends in: " + ("0" + days).slice(-2) + "d " + ("0" + hours).slice(-2) + "h " + ("0" + minutes).slice(-2) + "m " + ("0" + seconds).slice(-2) + "s ";
+				document.getElementById(timerID[cnt]).innerHTML = "อยู่ในช่วงอีเว้นท์<br> และจะจบใน: " + ("0" + days).slice(-2) + "d " + ("0" + hours).slice(-2) + "h " + ("0" + minutes).slice(-2) + "m " + ("0" + seconds).slice(-2) + "s ";
 			}
 			if (distance < startTime[cnt].unix() - stopTime[cnt].unix()) {
 				document.getElementById(boxID[cnt]).style.backgroundColor="#6D6D6D";
-				document.getElementById(timerID[cnt]).innerHTML = "Event has ended";
+				document.getElementById(timerID[cnt]).innerHTML = "อีเว้นท์จบแล้ว";
 			}
 		}
 		setTimeout(continueTimer, 1000);
